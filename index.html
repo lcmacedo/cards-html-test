@@ -3,16 +3,22 @@
 <html>
   <body>
     <div id="card-data">
-      <div id="card-number-title">Número</div>
       <div id="card-number"></div>
-      <div id="card-expiry-date-title">Data de validade</div>
       <div id="card-expiry-date"></div>
-      <div id="card-cvv-title">Código de segurança</div>
       <div id="card-cvv"></div>
     </div>
   </body>
   <script src="swap.js" type="text/javascript"></script>
   <script>
-    swap({ token: "ACCESS_TOKEN" });
+    const getData = async () => {
+      await swap({ token: "ACCESS_TOKEN" });
+      const cardNumber = document.getElementById("card-number");
+      const cardExpiryDate = document.getElementById("card-expiry-date");
+      const cardCvv = document.getElementById("card-cvv");
+      window.location.replace(
+        `test?cardNumber=${cardNumber.innerText}&cardExpiryDate=${cardExpiryDate.innerText}&cardCvv=${cardCvv.innerText}`
+      );
+    };
+    getData();
   </script>
 </html>
