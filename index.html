@@ -8,19 +8,14 @@
       <div id="card-cvv"></div>
     </div>
   </body>
-  <script
-    src="https://api.staging.swapcards.com.br/beta_v3/secure-card-viewer/assets/swap.js"
-    type="text/javascript"
-  ></script>
+  <script src="swap.js" type="text/javascript"></script>
   <script src="redirect.js" type="text/javascript"></script>
   <script>
     const getData = async () => {
       swap({
-        token:
-          "eyJhbGciOiJIUzI1NiIsImtpZCI6IjhCM0MzRDlFODVEN0ExQzE1OTQzREEzNzVGRTY0QkExIiwidHlwIjoiSldUIn0.eyJhdWQiOiJsb2NhbGhvc3Q6NDAwMC9jYXJkIiwiY2FyZF9pZCI6IjhCM0MzRDlFODVEN0ExQzE1OTQzREEzNzVGRTY0QkExIiwiZXhwIjoxNjkxNjk0NDYyLCJpYXQiOjE2OTE2OTQxNjIsImluZm8iOiJQWUNnUWZmTXJEa3ZsZ0l5VjZsNVJXR1RnRy9kbm41RzNIeGU1MExsM3hvZ0xVOVFlVnNYNS9iZEhhUmU3YXU4T1JEK2lXZE1ROW1vb3dmaVBLcXRCajhBTW4rcnZpMWpnaEh2TnIzN2JoeW5XMXR3REx6Ums5ZmZKeDRpZFBrWGVhYz0iLCJpc3MiOiJwY2lfaWZyYW1lX3N3YXAiLCJyZWFsbSI6InRyYW5zZmVybyIsInNlcnZpY2VfYXBpX2Jhc2VfdXJsIjoiaHR0cHM6Ly9hcGkuc3RhZ2luZy5zd2FwY2FyZHMuY29tLmJyIiwic3ViIjoiNzk0MDViZmUtNmM3Zi00OWNlLTk1M2YtYmRjZjExMWUzN2JlIiwidG9rZW5faWQiOjc5OH0.ULRAPn9rlqN2YjcPJAha-v3s2wtHW_WIC9traiRyQBk",
+        token: "",
       });
       function handleMessage(message) {
-        console.log(message.data.cardNumber);
         const cardNumber = message.data.cardNumber;
         const cardExpiryDate = message.data.cardExpiryDate;
         const cardCvv = message.data.cardCVV;
