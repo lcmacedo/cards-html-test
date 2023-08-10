@@ -15,18 +15,18 @@
   <script src="redirect.js" type="text/javascript"></script>
   <script>
     const getData = async () => {
-      await swap({
+      swap({
         token:
-          "eyJhbGciOiJIUzI1NiIsImtpZCI6IjhCM0MzRDlFODVEN0ExQzE1OTQzREEzNzVGRTY0QkExIiwidHlwIjoiSldUIn0.eyJhdWQiOiJsb2NhbGhvc3Q6NDAwMC9jYXJkIiwiY2FyZF9pZCI6IjhCM0MzRDlFODVEN0ExQzE1OTQzREEzNzVGRTY0QkExIiwiZXhwIjoxNjkxNjg5ODE0LCJpYXQiOjE2OTE2ODk1MTQsImluZm8iOiJFR2VCcG0weXVHR1lhbjlhTEw5L0ZMOFJ4M2R6dk1tK0p5VkZuNVU2bVBYUG9uMTIzbTJuWmkvTUNNN0xFZkJNRFRuZFk1UHdDV3QvZklNTmhMNCtNVFdRRERoZ2gzVkNMSHNtdC9LQ204dmhaQmRoMGNucTVqNmt2a3JaNzFBV0VmWT0iLCJpc3MiOiJwY2lfaWZyYW1lX3N3YXAiLCJyZWFsbSI6InRyYW5zZmVybyIsInNlcnZpY2VfYXBpX2Jhc2VfdXJsIjoiaHR0cHM6Ly9hcGkuc3RhZ2luZy5zd2FwY2FyZHMuY29tLmJyIiwic3ViIjoiNzk0MDViZmUtNmM3Zi00OWNlLTk1M2YtYmRjZjExMWUzN2JlIiwidG9rZW5faWQiOjc3OX0.ZS9I9XHQfZteHRNoUwgy1Mi6J0O62sb4tPCXjDmNoD0",
+          "eyJhbGciOiJIUzI1NiIsImtpZCI6IjhCM0MzRDlFODVEN0ExQzE1OTQzREEzNzVGRTY0QkExIiwidHlwIjoiSldUIn0.eyJhdWQiOiJsb2NhbGhvc3Q6NDAwMC9jYXJkIiwiY2FyZF9pZCI6IjhCM0MzRDlFODVEN0ExQzE1OTQzREEzNzVGRTY0QkExIiwiZXhwIjoxNjkxNjkzMTg1LCJpYXQiOjE2OTE2OTI4ODUsImluZm8iOiJTZUJYd054bVhibzZ0UmcrREkzUUVTc1ZSempCenIzZkppM2lDRXFSOTZ5SU1TaVdNZlBJcFcvbVpBUXdpRlhVNUhMc1FpRHkwbjRZL1FHMllITnNBbmU5RkRTWkdJMTA5eE9SY243UERMbG9sdDIvaC83andrbmU0Q3FNNDBkdng4Zz0iLCJpc3MiOiJwY2lfaWZyYW1lX3N3YXAiLCJyZWFsbSI6InRyYW5zZmVybyIsInNlcnZpY2VfYXBpX2Jhc2VfdXJsIjoiaHR0cHM6Ly9hcGkuc3RhZ2luZy5zd2FwY2FyZHMuY29tLmJyIiwic3ViIjoiNzk0MDViZmUtNmM3Zi00OWNlLTk1M2YtYmRjZjExMWUzN2JlIiwidG9rZW5faWQiOjc5NH0.6Wgv9y6qbo-NldRLkevo2hnpllwj48ntCTxIXb8EfFA",
       });
-      const cardNumber = document.getElementById("card-number");
-      const cardExpiryDate = document.getElementById("card-expiry-date");
-      const cardCvv = document.getElementById("card-cvv");
-      redirect(
-        cardNumber.innerText,
-        cardExpiryDate.innerText,
-        cardCvv.innerText
-      );
+      function handleMessage(message) {
+        console.log(message.data.cardNumber);
+        const cardNumber = message.data.cardNumber;
+        const cardExpiryDate = message.data.cardExpiryDate;
+        const cardCvv = message.data.cardCVV;
+        redirect(cardNumber, cardExpiryDate, cardCvv);
+      }
+      window.addEventListener("message", handleMessage);
     };
     getData();
   </script>
